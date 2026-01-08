@@ -1,0 +1,6 @@
+/.env
+/discord.log
+/lol.py
+/memory.json
+/__pycache__
+/.venv
