@@ -136,9 +136,7 @@ Users can send direct messages to the bot to have AI-powered conversations.
 
 ## Developer
 
-Developed by **[Prasoon Kandel](https://github.com/prasoonkandel)**
-
-Prasoon is a passionate student developer from Nepal, currently studying Grade 9 (Technical Education - Computer Engineering) at Kalika Manavgyan Secondary School. Skilled in multiple programming languages including Python, JavaScript, C/C++, C#, JAVA, and Arduino, with a focus on building innovative solutions and continuous learning.
+Created by **[Prasoon Kandel](https://github.com/prasoonkandel)**
 
 ## Community
 
