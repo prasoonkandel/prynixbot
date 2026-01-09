@@ -113,12 +113,12 @@ async def notifyall(ctx, title: str, *, description: str):
         return
     await ctx.message.delete()
 
-    notifyall = discord.Embed(
+    notification_msg = discord.Embed(
         title="Notification",
         description=f" {ctx.author.mention} has notified all.",
         color=0x41acd0
     )
-    await ctx.send(embed=notifyall)
+    await ctx.send(embed=notification_msg)
     embed = discord.Embed(title=title, description=description, color=0x41acd0)
     failed = 0
     for member in ctx.guild.members:
@@ -139,12 +139,12 @@ async def notifyall(ctx, title: str, *, description: str):
 @bot.command()
 async def notify(ctx, member: discord.Member, title: str, *, description: str):
     await ctx.message.delete()
-    notifyall = discord.Embed(
+    notified = discord.Embed(
         title="Notification",
         description=f" {ctx.author.mention} has notified {member.mention}.",
         color=0x41acd0
     )
-    await ctx.send(embed=notifyall)
+    await ctx.send(embed=notified)
     embed = discord.Embed(title=title, description=description, color=0x41acd0)
     if member.bot:  
         await ctx.send("🚫 Cannot notify bots.")
@@ -172,6 +172,13 @@ async def announcement(ctx, title: str, *, description: str):
         await ctx.send(f'Error: {e}')
 @bot.command()
 async def mathquote(ctx):
+    await ctx.message.delete()
+    requested = discord.Embed(
+        title="Notification",
+        description=f" {ctx.author.mention} has requested a math quote.",
+        color=0x41acd0
+    )
+    await ctx.send(embed=requested)
     try:
         response = requests.get('https://mathex.onrender.com/api/quotes')
         data = response.json()
