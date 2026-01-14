@@ -86,7 +86,10 @@ async def on_member_remove(member):
 async def on_message(message):
     if message.author == bot.user:
         return
-    if isinstance(message.channel, discord.DMChannel):
+ 
+    await bot.process_commands(message)
+    
+    if isinstance(message.channel, discord.DMChannel) and not message.content.startswith(bot.command_prefix):
         try:
             response = answer(message.content)
             chunks = split_message(response)
@@ -94,7 +97,6 @@ async def on_message(message):
                 await message.channel.send(chunk)
         except Exception as e:
             await message.channel.send(f'Error: {e}')
-    await bot.process_commands(message)
 
 @bot.command()
 async def kick4(ctx, member: discord.Member):
